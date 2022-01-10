@@ -1,6 +1,5 @@
 import express from 'express';
-import diaryService from '../services/diaryService';
-import getDiagnoses from '../services/diaryService';
+import getPatients from '../services/patientService';
 import cors from 'cors';
 
 const app = express();
@@ -10,11 +9,7 @@ app.use(cors());
 const router = express.Router();
 
 router.get('/', (_req, res) => {
-  res.send(diaryService.getNonSensitiveEntries());
-});
-
-router.get('/', (_req, res) => {
-  res.send(getDiagnoses.getDiagnoses());
+  res.send(getPatients.getPatients());
 });
 
 router.post('/', (_req, res) => {
