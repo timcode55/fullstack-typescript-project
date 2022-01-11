@@ -9,7 +9,7 @@ app.use(cors());
 const router = express.Router();
 
 router.get('/', (_req, res) => {
-  res.send(getPatients.getPatients());
+  res.send(getPatients.getNonSensitivePatientEntries());
 });
 
 router.post('/', (_req, res) => {

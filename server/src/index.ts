@@ -4,6 +4,8 @@ import diagnosesRouter from './routes/diagnoses';
 import patientRouter from './routes/patients';
 const app = express();
 app.use(express.json());
+const cors = require('cors');
+app.use(cors());
 
 const PORT = 5000;
 

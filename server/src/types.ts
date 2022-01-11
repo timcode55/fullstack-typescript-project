@@ -20,9 +20,11 @@ export interface PatientEntry {
   id: string;
   name: string;
   dateOfBirth: string;
-  ssn: string;
+  ssn?: string;
   gender: string;
   occupation: string;
 }
 
 export type NonSensitiveDiaryEntry = Omit<DiaryEntry, 'comment'>;
+
+export type NonSensitivePatientEntry = Omit<PatientEntry, 'ssn'>;
