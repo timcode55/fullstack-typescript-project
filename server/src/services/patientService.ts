@@ -9,13 +9,16 @@ import {
 } from '../types';
 
 const getNonSensitivePatientEntries = (): NonSensitivePatientEntry[] => {
-  return patients.map(({ id, name, dateOfBirth, gender, occupation }) => ({
-    id,
-    name,
-    dateOfBirth,
-    gender,
-    occupation
-  }));
+  return patients.map(
+    ({ id, name, dateOfBirth, gender, occupation, entries }) => ({
+      id,
+      name,
+      dateOfBirth,
+      gender,
+      occupation,
+      entries
+    })
+  );
 };
 
 const addPatient = (entry: newPatientEntry): PatientEntry => {
@@ -26,6 +29,11 @@ const addPatient = (entry: newPatientEntry): PatientEntry => {
 
   patients.push(newPatientEntry);
   return newPatientEntry;
+};
+
+const findById = (id: string): PatientEntry | undefined => {
+  const entry = patients.find((d) => d.id === id);
+  return entry;
 };
 
 // const getNonSensitiveEntries = (): NonSensitiveDiaryEntry[] => {
@@ -39,5 +47,6 @@ const addPatient = (entry: newPatientEntry): PatientEntry => {
 
 export default {
   getNonSensitivePatientEntries,
-  addPatient
+  addPatient,
+  findById
 };
